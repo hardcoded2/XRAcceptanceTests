@@ -49,7 +49,7 @@ public class BuildWindow : EditorWindow
             targetGroup = BuildTargetGroup.Android,
             target = BuildTarget.Android,
             name = Enum.GetName(typeof(BuildTargetGroup), BuildTargetGroup.Android),
-            XRPlatforms = new string[] { "Oculus", "Daydream", "Cardboard" }
+            XRPlatforms = new string[] { "WaveXR" }
         });
         AvailablePlatforms.Add(new XRTargetPlatform
         {
