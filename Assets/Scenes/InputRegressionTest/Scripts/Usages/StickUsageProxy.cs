@@ -28,15 +28,12 @@ public class StickUsageProxy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 value;
-        InputDevice device = InputDevices.GetDeviceAtXRNode(node);
-
-        if (!InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(new InputFeatureUsage<Vector2>(usageName), out value))
+        var stickValueMaybe = GetStickValue(XRNode.RightHand,"Primary2DAxis");
+        if (stickValueMaybe == null)
             return;
-
-        currentXValue = value.x;
-        currentYValue = value.y;
-
+        Vector2 value = stickValueMaybe.Value;
+        
+        //use output
         if (horizontalSliderComponent != null)
             horizontalSliderComponent.value = value.x;
 
@@ -45,5 +42,16 @@ public class StickUsageProxy : MonoBehaviour
 
         if (valueTextComponent != null)
             valueTextComponent.text = string.Format("[{0},{1}]", value.x.ToString("F"), value.y.ToString("F"));
+    }
+
+    private Vector2? GetStickValue(XRNode node,string axisName)
+    {
+        Vector2 value;
+        InputDevice device = InputDevices.GetDeviceAtXRNode(node);
+
+        if (!device.TryGetFeatureValue(new InputFeatureUsage<Vector2>(axisName), out value))
+            return null;
+
+        return value;
     }
 }
