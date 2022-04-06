@@ -49,7 +49,7 @@
   "scopedRegistries": [
     {
       "name": "HTC Internal",
-      "url": "https://preview-npm-registry.vive.com",
+      "url": "https://npm-registry.vive.com",
       "scopes": [
         "com.htc.upm",
         "com.htc.upm.wave"
