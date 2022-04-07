@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+#if UNITY_2020_2_OR_NEWER
+using UnityEngine.XR;
+#else
 using UnityEngine.VR;
+#endif
 
 [RequireComponent(typeof(VRInput))]
 [AddComponentMenu("Event/VR Input Module")]
