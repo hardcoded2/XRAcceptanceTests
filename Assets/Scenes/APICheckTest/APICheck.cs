@@ -33,7 +33,7 @@ public class APICheck : MonoBehaviour {
         {
 
             string text = "";
-    #if UNITY_2017_2_OR_NEWER
+    #if UNITY_2020_2_OR_NEWER
             text += "XRDevice\n";
             text += "\tisPresent: " + isPresent() + "\n";
             var xrInputSubsystems = new List<XRInputSubsystem>();
